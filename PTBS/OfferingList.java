@@ -3,13 +3,17 @@ package PTBS;
 import java.util.ArrayList;
 
 public class OfferingList {
-    ArrayList<String> offeringList;
+    ArrayList<Offering> offeringList;
 
-    OfferingList(ArrayList<String> offerings) {
+    OfferingIterator offeringIterator;
+
+    OfferingList(ArrayList<Offering> offerings) {
         offeringList = offerings;
+        offeringIterator = new OfferingIterator(this);
     }
 
-    ArrayList<String> getProductList() {
+    ArrayList<Offering> getOfferingList() {
         return offeringList;
     }
+
 }

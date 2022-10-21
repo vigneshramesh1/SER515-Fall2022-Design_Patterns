@@ -4,13 +4,22 @@ import java.util.ArrayList;
 
 public class ClassProductList {
 
-    ArrayList<String> productList;
+    ArrayList<Product> productList;
 
-    ClassProductList(ArrayList<String> products) {
+    ProductIterator productIterator;
+
+    ClassProductList(ArrayList<Product> products) {
         productList = products;
+        productIterator = new ProductIterator(this);
     }
 
-    ArrayList<String> getProductList() {
+    ArrayList<Product> getProductList() {
         return productList;
+    }
+
+    void accept(NodeVisitor visitor) {
+        // Visitor pattern is implemented here
+        System.out.println("Accept visitor in ClassProductList class");
+        visitor.visitProduct(this.productList.get(0));
     }
 }

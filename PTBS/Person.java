@@ -1,9 +1,11 @@
 package PTBS;
 
+import java.util.HashMap;
+
 public abstract class Person {
     private ProductMenu theProductMenu;
 
-    abstract void showMenu();
+    abstract void showMenu(int productCategory);
 
     void showAddButton() {
 

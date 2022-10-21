@@ -1,9 +1,28 @@
 package PTBS;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class ProduceProductMenu implements ProductMenu {
     @Override
     public void showMenu() {
-
+        try {
+            File obj = new File("ProductInfo.txt");
+            Scanner reader = new Scanner(obj);
+            while (reader.hasNextLine()) {
+                String data = reader.nextLine();
+                String[] arrOfStr = data.split(":");
+                if(arrOfStr[0].equalsIgnoreCase("Produce")){
+                    System.out.println(arrOfStr[0] + ":" +  arrOfStr[1]);
+                }
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred while reading ProductInfo.txt file.");
+            e.printStackTrace();
+        }
     }
 
     @Override
